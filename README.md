@@ -239,9 +239,11 @@ Progress: 100% |████████████████████| 25
 ## 👥 Team Members
 
 **Team Attention Please**
-- Member 1: [Role/Contribution]
-- Member 2: [Role/Contribution]
-- Member 3: [Role/Contribution]
+- **Shao-Hua Wu**‡ - Document Processing & Retrieval System
+- **Xie-Pei Ju**‡ - Hybrid Search Implementation & Optimization
+- **Bo-Hao Chen**‡ - Answer Generation & Prompt Engineering
+- **Yi-Chen Hsiao**∗ - Report generation
+- **Yi-Yang Xue**† - Hybrid Search Implementation & Optimization
 
 ---
 
