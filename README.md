@@ -4,9 +4,11 @@
 
 [![Competition](https://img.shields.io/badge/Kaggle-WattBot%202025-20BEFF?style=for-the-badge&logo=kaggle)](https://kaggle.com/competitions/WattBot2025)
 [![Team](https://img.shields.io/badge/Team-Attention%20Please-FF6B6B?style=for-the-badge)]()
+[![System](https://img.shields.io/badge/System-HERO-9B59B6?style=for-the-badge)]()
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)]()
 
-**Evidence-based Energy Estimation for AI Workloads using Retrieval Augmented Generation**
+### **HERO: Hierarchical Evidence Retrieval & Optimization**
+*Evidence-based Energy Estimation for AI Workloads using Retrieval Augmented Generation*
 
 [📄 Technical Report](docs/WattBot2025_AttentionPlease_Technical_Report.pdf) | [📊 Presentation](docs/WattBot2025_AttentionPlease_Presentation.pdf)
 
@@ -40,15 +42,25 @@
 
 | Metric | Score |
 |--------|-------|
-| **Final WattBot Score** | 0.886 |
-| **Public Leaderboard Rank** | 1 |
-| **Private Leaderboard Rank** | 1 |
+| **Final WattBot Score** | [To be updated] |
+| **Public Leaderboard Rank** | [To be updated] |
+| **Private Leaderboard Rank** | [To be updated] |
 
 ---
 
 ## 🎯 Solution Architecture
 
-Our RAG pipeline consists of four key components:
+Our **HERO (Hierarchical Evidence Retrieval & Optimization)** pipeline consists of four key components:
+
+### 🌟 What Makes HERO Different?
+
+| Feature | HERO Approach | Traditional RAG |
+|---------|---------------|-----------------|
+| **Document Structure** | Preserves hierarchy (Doc→Section→Leaf) | Flat chunking |
+| **Retrieval Strategy** | Hybrid (BM25 + Dense) with reranking | Single-method |
+| **Storage** | SQLite single-file | External vector DBs |
+| **Visual Processing** | OCR + Table extraction | Text-only |
+| **Citation Handling** | Multi-document evidence aggregation | Single-source |
 
 ### 1. **Document Processing** 📄
 ```
@@ -132,6 +144,9 @@ Based on our experimental results:
 │   ├── metadata.csv                         # Document index
 │   ├── train_QA.csv                         # Training Q&A pairs
 │   └── test_Q.csv                           # Test questions
+├── src/                                     # (Optional) Modular code
+├── outputs/
+│   └── submission.csv                       # Final predictions
 └── README.md
 ```
 
@@ -174,10 +189,21 @@ Progress: 100% |████████████████████| 25
 ## 📊 Performance Breakdown
 
 ### Retrieval Performance
-| Metric | Top-1 | Top-3 | Top-5 | Top-10 |
-|--------|-------|-------|-------|--------|
-| Recall@K | 0.42 | 0.68 | 0.79 | 0.88 |
-| MRR | 0.58 | - | - | - |
+
+| Metric | Baseline | HERO (Ours) | Δ |
+|--------|----------|-------------|---|
+| **Recall@K (Coverage)** |
+| Recall@1 | 79.49% | **80.49%** | +1.00% |
+| Recall@3 | 89.74% | **89.80%** | +0.06% |
+| Recall@5 | 92.31% | **92.68%** | +0.37% |
+| Recall@10 | 92.31% | **95.12%** | +2.81% |
+| **nDCG@K (Ranking Quality)** |
+| nDCG@1 | 0.7949 | **0.8049** | +0.0100 |
+| nDCG@3 | 0.8497 | **0.8502** | +0.0005 |
+| nDCG@5 | 0.8564 | **0.8584** | +0.0020 |
+| nDCG@10 | 0.8617 | **0.8665** | +0.0048 |
+| **Overall Accuracy** |
+| MRR | 0.8526 | **0.8560** | +0.0034 |
 
 ### Answer Accuracy by Question Type
 | Type | Count | Accuracy |
@@ -220,8 +246,8 @@ Progress: 100% |████████████████████| 25
 |---------------|---------------|---|
 | BM25 only | 0.64 | -0.18 |
 | Dense only | 0.71 | -0.11 |
-| **Hybrid (ours)** | **0.82** | **baseline** |
-| + Visual processing | 0.85 | +0.03 |
+| **HERO (Hybrid)** | **0.82** | **baseline** |
+| HERO + Visual processing | 0.85 | +0.03 |
 
 ---
 
@@ -236,11 +262,14 @@ Progress: 100% |████████████████████| 25
 ## 👥 Team Members
 
 **Team Attention Please**
+
 - **Shao-Hua Wu**‡ - Document Processing & Retrieval System
 - **Xie-Pei Ju**‡ - Hybrid Search Implementation & Optimization
 - **Bo-Hao Chen**‡ - Answer Generation & Prompt Engineering
-- **Yi-Chen Hsiao**∗ - Report generation
-- **Yi-Yang Xue**† - Hybrid Search Implementation & Optimization
+- **Yi-Chen Hsiao**∗ - Project Lead & System Architecture
+- **Yi-Yang Xue**† - Evaluation & Performance Analysis
+
+<sup>‡ Equal contribution</sup>
 
 ---
 
@@ -249,11 +278,11 @@ Progress: 100% |████████████████████| 25
 If you find our approach useful, please cite:
 
 ```bibtex
-@misc{wattbot2025_attentionplease,
-  title={WattBot 2025: Evidence-based Energy Estimation using RAG},
-  author={Team Attention Please},
+@misc{wattbot2025_hero,
+  title={HERO: Hierarchical Evidence Retrieval \& Optimization for WattBot 2025},
+  author={Wu, Shao-Hua and Ju, Xie-Pei and Chen, Bo-Hao and Hsiao, Yi-Chen and Xue, Yi-Yang},
   year={2025},
-  howpublished={\url{https://github.com/your-repo/wattbot2025}}
+  howpublished={\url{https://github.com/your-repo/wattbot2025-hero}}
 }
 ```
 
