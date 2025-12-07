@@ -132,9 +132,6 @@ Based on our experimental results:
 │   ├── metadata.csv                         # Document index
 │   ├── train_QA.csv                         # Training Q&A pairs
 │   └── test_Q.csv                           # Test questions
-├── src/                                     # (Optional) Modular code
-├── outputs/
-│   └── submission.csv                       # Final predictions
 └── README.md
 ```
 
